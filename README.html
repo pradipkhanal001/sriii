@@ -1,0 +1,131 @@
+# sriii
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #E6C3FF; /* Soft Lavender */
+      color: #fff;
+      font-family: 'Arial', sans-serif; /* Changed font to Arial */
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .message {
+      max-width: 600px;
+      text-align: center;
+      font-size: 1.5rem;
+      opacity: 0;
+      animation: fadeIn 3s ease-in-out forwards 1s;
+      display: none;
+      color: #060505; /* Light Pink Text for better contrast */
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Soft shadow for readability */
+      font-family: 'Verdana', sans-serif; /* Smoother font */
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .heart {
+      position: absolute;
+      top: -50px;
+      font-size: 2rem;
+      animation: fall 5s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    .swipe-button {
+      background: #ff4081;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      z-index: 2;
+    }
+
+    .swipe-button:hover {
+      background: #f50057;
+    }
+
+    .swipe-button:active {
+      transform: scale(0.95);
+    }
+
+    /* Couple kissing sticker background */
+    .background-sticker {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      opacity: 0.2;
+      width: 250px; /* Adjust size as needed */
+    }
+  </style>
+</head>
+<body>
+  <!-- Swipe Button -->
+  <button class="swipe-button" id="swipeButton">Punch me</button>
+
+  <!-- Heart Emoji Fall -->
+  <div class="message" id="message">
+    Every moment with you feels like a beautiful dream I never want to wake up from.<br><br>
+    That moment… when time slowed down and the world faded into the background, when it was just you and me wrapped in silence and something unspoken—I keep reliving it, not because I need to remember, but because I never want to forget how right it felt.<br><br>
+    You’ve become my calm, my spark, and my home all at once.<br><br>
+    You mean more to me than words can ever hold.<br><br>
+    I love you so much, babe—more than you’ll ever know.
+    <br>-Your Sparkly
+  </div>
+
+ 
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    document.getElementById('swipeButton').addEventListener('click', () => {
+      document.getElementById('swipeButton').style.display = 'none';
+      document.getElementById('message').style.display = 'block';
+      setInterval(createHeart, 300);
+    });
+  </script>
+</body>
+</html>
+
